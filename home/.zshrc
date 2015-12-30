@@ -92,4 +92,4 @@ export LC_ALL=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias mvn="mvn-color"
 
-
+homeshick --quiet refresh
