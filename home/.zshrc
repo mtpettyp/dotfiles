@@ -97,3 +97,7 @@ export LC_ALL=en_US.UTF-8
 alias mvn="mvn-color"
 
 homeshick --quiet refresh
+
+mkdir -p "${HOME}/.history/$(date -u +%Y/%m)"
+HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME_SHORT}_$$"
+HISTCONTROL=ignorespace
