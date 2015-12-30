@@ -60,6 +60,8 @@ export PATH="/Users/mpettypiece/bin:/Applications/Postgres.app/Contents/Versions
 #export DOCKER_CERT_PATH=/Users/mpettypiece/.boot2docker/certs/boot2docker-vm
 #export DOCKER_TLS_VERIFY=1
 
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -91,4 +93,3 @@ export LC_ALL=en_US.UTF-8
 alias mvn="mvn-color"
 
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
