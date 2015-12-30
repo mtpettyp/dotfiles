@@ -51,9 +51,13 @@ plugins=(git aws brew docker encode64 git-extras git-flow history mvn pip vagran
 
 # User configuration
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0`
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0`
+elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+  export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+fi
 
-export PATH="/Users/mpettypiece/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Users/mpettypiece/.ec2/bin"
+export PATH="$HOME/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 #export DOCKER_HOST=tcp://192.168.59.103:2376
