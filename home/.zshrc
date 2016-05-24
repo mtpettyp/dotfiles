@@ -66,6 +66,7 @@ export PATH="$HOME/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -101,3 +102,6 @@ homeshick --quiet refresh
 mkdir -p "${HOME}/.history/$(date -u +%Y/%m)"
 HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME_SHORT}_$$"
 HISTCONTROL=ignorespace
+
+# added by travis gem
+[ -f /Users/mpettypiece/.travis/travis.sh ] && source /Users/mpettypiece/.travis/travis.sh
