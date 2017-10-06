@@ -2,5 +2,13 @@
     "workbench.iconTheme": "vscode-icons",
     "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
     "files.trimTrailingWhitespace": true,
-    "terraform.formatOnSave": true
+    "terraform.formatOnSave": true,
+    "files.exclude": {
+        "**/*.pyc": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/.terraform/*": true
+    }
 }
