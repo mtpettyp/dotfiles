@@ -47,7 +47,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew docker encode64 git-extras git-flow history mvn pip vagrant)
+plugins=(git brew docker encode64 git-extras git-flow history pip vagrant)
 
 # User configuration
 
@@ -95,8 +95,6 @@ export LC_ALL=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias mvn="mvn-color"
-
 homeshick --quiet refresh
 
 mkdir -p "${HOME}/.history/$(date -u +%Y/%m)"
