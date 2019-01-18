@@ -64,6 +64,8 @@ export PATH="$HOME/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/
 #export DOCKER_CERT_PATH=/Users/mpettypiece/.boot2docker/certs/boot2docker-vm
 #export DOCKER_TLS_VERIFY=1
 
+DISABLE_UPDATE_PROMPT=true
+
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -103,3 +105,4 @@ HISTCONTROL=ignorespace
 
 # added by travis gem
 [ -f /Users/mpettypiece/.travis/travis.sh ] && source /Users/mpettypiece/.travis/travis.sh
+
