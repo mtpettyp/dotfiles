@@ -35,6 +35,7 @@ local laptop_display = {
 local desk_display = {
     {"iTerm2",            nil,   display_dell_right(), hs.layout.left50,    nil, nil},
     {"Google Chrome",     nil,   display_dell_left(),  hs.layout.maximized, nil, nil},
+    {"Firefox",           nil,   display_dell_left(),  hs.layout.maximized, nil, nil},
     {"Eclipse",           nil,   display_dell_right(), hs.layout.maximized, nil, nil},
     {"Code",              nil,   display_dell_right(), hs.layout.maximized, nil, nil},
     {"iTunes",            nil,   display_laptop,       nil, nil, nil},

@@ -52,9 +52,9 @@ plugins=(git brew docker encode64 git-extras git-flow history pip vagrant)
 # User configuration
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0`
+  export JAVA_HOME=`/usr/libexec/java_home -v 11`
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-  export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+  export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 fi
 
 export PATH="$HOME/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
@@ -103,6 +103,6 @@ mkdir -p "${HOME}/.history/$(date -u +%Y/%m)"
 HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME_SHORT}_$$"
 HISTCONTROL=ignorespace
 
-# added by travis gem
-[ -f /Users/mpettypiece/.travis/travis.sh ] && source /Users/mpettypiece/.travis/travis.sh
-
+# pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
