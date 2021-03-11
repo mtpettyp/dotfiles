@@ -75,8 +75,7 @@ export PATH="$HOME/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/
 
 DISABLE_UPDATE_PROMPT=true
 
-export HOMESHICK_DIR=$(brew --prefix)/opt/homeshick
-source "$(brew --prefix)/opt/homeshick/homeshick.sh"
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
 ZSH_DISABLE_COMPFIX=true
