@@ -1,6 +1,8 @@
 tap "AdoptOpenJDK/openjdk"
 tap "hashicorp/tap"
+tap "filippo.io/age"
 
+brew "age"
 brew "ansible"
 brew "ansible-lint"
 brew "awscli"
