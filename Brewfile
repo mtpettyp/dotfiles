@@ -30,6 +30,7 @@ brew "mr"
 brew "packer"
 brew "pyenv"
 brew "pyenv-virtualenv"
+brew "qrencode"
 brew "shellcheck"
 brew "ssh-copy-id", link: true
 brew "tcpdump"
