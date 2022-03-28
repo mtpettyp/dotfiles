@@ -1,6 +1,0 @@
-[alias]
-in = !git fetch && log --pretty=oneline --abbrev-commit --graph ..@{u} 
-out = !git fetch && git log --pretty=oneline --abbrev-commit --graph @{u}..
-undo-commit = reset --soft HEAD^
-lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-alias = config --get-regexp ^alias\\.
