@@ -1,10 +1,12 @@
 tap "AdoptOpenJDK/openjdk"
 tap "hashicorp/tap"
+tap "homebrew/autoupdate"
 tap "filippo.io/age"
 
 brew "age"
 brew "ansible"
 brew "ansible-lint"
+brew "autoupdate"
 brew "aws-sso-util"
 brew "awscli"
 brew "bash"
