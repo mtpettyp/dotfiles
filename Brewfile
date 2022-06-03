@@ -34,6 +34,7 @@ brew "packer"
 brew "pyenv"
 brew "pyenv-virtualenv"
 brew "qrencode"
+brew "secretive"
 brew "session-manager-plugin"
 brew "shellcheck"
 brew "ssh-copy-id", link: true
