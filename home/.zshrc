@@ -60,13 +60,11 @@ plugins=(git brew docker encode64 git-extras history pip vagrant terraform)
 
 # User configuration
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  export JAVA_HOME=`/usr/libexec/java_home -v 17`
-elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-  export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-fi
+export PATH="$HOME/bin:/opt/homebrew/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
-export PATH="$HOME/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 #export DOCKER_HOST=tcp://192.168.59.103:2376
