@@ -1,0 +1,6 @@
+export PATH="${PATH}:/opt/homebrew/bin:/Applications/IntelliJ IDEA.app/Contents/MacOS"
+
+export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+
+SSH_AUTH_SOCK="/Users/mtpettyp/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
