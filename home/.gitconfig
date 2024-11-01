@@ -7,16 +7,16 @@
 
 [push]
   default = current
-	autoSetupRemote = true
+  autoSetupRemote = true
 
 [pull]
-	rebase = true
+  rebase = true
 
-[includeIf "gitdir:~/Development/starling/"]
-  path = ~/Development/starling/.gitconfig
+[includeIf "gitdir:~/Development/fleet/"]
+  path = ~/Development/fleet/.gitconfig
 
 [core]
-	excludesfile = /Users/mtpettyp/.gitignore_global
+  excludesfile = /Users/mtpettyp/.gitignore_global
 
 [alias]
   in = !git fetch && log --pretty=oneline --abbrev-commit --graph ..@{u}
@@ -24,9 +24,14 @@
   undo-commit = reset --soft HEAD^
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   alias = config --get-regexp ^alias\\.
+
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+
+[pager]
+  branch = false
