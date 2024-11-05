@@ -61,6 +61,14 @@ plugins=(git brew docker encode64 git-extras history pip terraform)
 # User configuration
 export PATH="$HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+ZSH_DISABLE_COMPFIX=true
+source $ZSH/oh-my-zsh.sh
+
 # OS configuration
 source "${HOME}/.zshrc-`uname`"
 
@@ -72,11 +80,7 @@ source "${HOME}/.zshrc-`uname`"
 
 DISABLE_UPDATE_PROMPT=true
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
-fpath=(/usr/local/share/zsh-completions $fpath)
-ZSH_DISABLE_COMPFIX=true
-source $ZSH/oh-my-zsh.sh
+
 
 # You may need to manually set your language environment
 # export LANG=en_US
