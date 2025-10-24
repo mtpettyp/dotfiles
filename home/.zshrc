@@ -59,7 +59,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git brew docker encode64 git-extras history pip terraform)
 
 # User configuration
-export PATH="$HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$HOME/bin:$HOME/.local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
