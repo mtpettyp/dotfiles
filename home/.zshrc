@@ -72,11 +72,6 @@ source $ZSH/oh-my-zsh.sh
 # OS configuration
 source "${HOME}/.zshrc-`uname`"
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-#export DOCKER_HOST=tcp://192.168.59.103:2376
-#export DOCKER_CERT_PATH=/Users/mpettypiece/.boot2docker/certs/boot2docker-vm
-#export DOCKER_TLS_VERIFY=1
 
 DISABLE_UPDATE_PROMPT=true
 
@@ -109,10 +104,7 @@ DISABLE_UPDATE_PROMPT=true
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-mkdir -p "${HOME}/.history/$(date -u +%Y/%m)"
-HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME_SHORT}_$$"
-HISTCONTROL=ignorespace
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+eval "$(atuin init zsh)"
