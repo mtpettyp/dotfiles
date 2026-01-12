@@ -7,8 +7,8 @@
 #
 # Commands:
 #   wt <profile> <type> <name> [-- <git worktree add args...>]
-#   wt --profiles
 #   wt ls [profile]
+#   wt cd <profile> <type> <name>
 #   wt rm <profile> <type> <name> [--branch]
 #
 # Configuration:
@@ -68,16 +68,16 @@ _wt_usage() {
   cat <<'EOF'
 usage:
   wt <profile> <type> <name> [-- <git worktree add args...>]
-  wt --profiles
   wt ls [profile]
+  wt cd <profile> <type> <name>
   wt rm <profile> <type> <name> [--branch]
 
 examples:
   wt platform fix pdfbox-memory
   wt webapp feature auth-redirect
-  wt --profiles
   wt ls
   wt ls platform
+  wt cd platform chore mychore
   wt rm platform fix pdfbox-memory
   wt rm platform fix pdfbox-memory --branch
 EOF
@@ -98,12 +98,6 @@ _wt_need_main_checkout() {
 
 wt() {
   local cmd="${1-}"
-
-  # Global flags
-  if [[ "$cmd" == "--profiles" ]]; then
-    _wt_profiles
-    return 0
-  fi
 
   # Subcommands
   if [[ "$cmd" == "ls" ]]; then
@@ -137,6 +131,32 @@ wt() {
         print -u2 -- "== $p == (missing main checkout: $main)"
       fi
     done
+    return 0
+  fi
+
+  if [[ "$cmd" == "cd" ]]; then
+    local profile="${2-}" type="${3-}" name="${4-}"
+    if [[ -z "$profile" || -z "$type" || -z "$name" ]]; then
+      _wt_usage
+      return 1
+    fi
+
+    local repo_root
+    repo_root="$(_wt_repo_root_for_profile "$profile")" || {
+      print -u2 -- "Unknown profile: $profile"
+      print -u2 -- "Known profiles:"
+      _wt_profiles | sed 's/^/  /' >&2
+      return 1
+    }
+
+    local dir="$repo_root/wt/$type/$name"
+
+    if [[ -d "$dir" ]]; then
+      builtin cd "$dir" || return 1
+    else
+      print -u2 -- "Worktree directory does not exist: $dir"
+      return 1
+    fi
     return 0
   fi
 
@@ -301,7 +321,7 @@ _wt_worktree_names_comp() {
 _wt() {
   local -a types subcmds
   types=(fix feature chore exp spike)
-  subcmds=(ls rm --profiles)
+  subcmds=(ls cd rm)
 
   # words[1] = wt
   local w2="${words[2]-}"
@@ -340,6 +360,25 @@ _wt() {
   if [[ "$w2" == "ls" ]]; then
     if (( CURRENT == 3 )); then
       _wt_profiles_comp
+      return
+    fi
+    return
+  fi
+
+  # wt cd <profile> <type> <name>
+  if [[ "$w2" == "cd" ]]; then
+    if (( CURRENT == 3 )); then
+      _wt_profiles_comp
+      return
+    fi
+    if (( CURRENT == 4 )); then
+      _describe 'type' types
+      return
+    fi
+    if (( CURRENT == 5 )); then
+      local profile="${words[3]}"
+      local type="${words[4]}"
+      _wt_worktree_names_comp "$profile" "$type"
       return
     fi
     return
