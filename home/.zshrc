@@ -108,3 +108,6 @@ DISABLE_UPDATE_PROMPT=true
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval "$(atuin init zsh --disable-up-arrow)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
