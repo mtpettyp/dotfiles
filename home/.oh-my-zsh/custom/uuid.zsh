@@ -20,7 +20,7 @@ uuidv7_time() {
     return 2
   fi
 
-  local ts_hex="${uuid[1,12]}"
+  local ts_hex="${uuid[1,8]}${uuid[10,13]}"
   local ms=$(( 16#${ts_hex:l} ))
 
   # seconds + milliseconds remainder
