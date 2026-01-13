@@ -196,7 +196,23 @@ wt() {
       # Still worth pruning stale metadata, in case it was rm -rf'd earlier
       command git -C "$main" worktree prune >/dev/null 2>&1 || true
     else
-      command git -C "$main" worktree remove "$dir" || return 1
+      local remove_output
+      if ! remove_output=$(command git -C "$main" worktree remove "$dir" 2>&1); then
+        if [[ "$remove_output" == *"contains modified or untracked files"* ]]; then
+          print -u2 -- "$remove_output"
+          print -n "Force delete anyway? [y/N] "
+          local reply
+          read -r reply
+          if [[ "$reply" == [yY] ]]; then
+            command git -C "$main" worktree remove --force "$dir" || return 1
+          else
+            return 1
+          fi
+        else
+          print -u2 -- "$remove_output"
+          return 1
+        fi
+      fi
       command git -C "$main" worktree prune >/dev/null 2>&1 || true
     fi
 
