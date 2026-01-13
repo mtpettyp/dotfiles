@@ -1,7 +1,6 @@
 tap "aidansteel/taps"
 tap "hashicorp/tap"
 tap "homebrew/autoupdate"
-tap "homebrew/cask-fonts"
 tap "sdkman/tap"
 tap "common-fate/granted"
 tap "spring-io/tap"
