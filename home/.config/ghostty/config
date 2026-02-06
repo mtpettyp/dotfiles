@@ -1,0 +1,12 @@
+shell-integration = zsh
+shell-integration-features = true
+
+cursor-style = block
+
+macos-auto-secure-input = true
+macos-secure-input-indication = false
+macos-titlebar-proxy-icon = "hidden"
+
+theme = "Material Darker"
+window-height = 25
+window-width = 120
