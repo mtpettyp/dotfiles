@@ -2,7 +2,7 @@
 # Interactive git-worktree helper for multiple repos via profiles config.
 #
 # Layout expected per profile repo_root:
-#   <repo_root>/main    (canonical checkout)
+#   <repo_root>/<basename>  (canonical checkout)
 #   <repo_root>/wt/...  (worktrees)
 #
 # Commands:
@@ -110,7 +110,7 @@ wt() {
         _wt_profiles | sed 's/^/  /' >&2
         return 1
       }
-      local main="$repo_root/main"
+      local main="$repo_root/${repo_root:t}"
       _wt_need_main_checkout "$main" || return 1
 
       print -r -- "== $profile =="
@@ -122,7 +122,7 @@ wt() {
     local p repo_root main
     for p in $(_wt_profiles); do
       repo_root="$(_wt_repo_root_for_profile "$p")" || continue
-      main="$repo_root/main"
+      main="$repo_root/${repo_root:t}"
       if _wt_need_main_checkout "$main"; then
         print -r -- "== $p =="
         command git -C "$main" worktree list
@@ -184,7 +184,7 @@ wt() {
       return 1
     }
 
-    local main="$repo_root/main"
+    local main="$repo_root/${repo_root:t}"
     local dir="$repo_root/wt/$type/$name"
     local branch="$type/$name"
 
@@ -250,7 +250,7 @@ wt() {
     return 1
   }
 
-  local main="$repo_root/main"
+  local main="$repo_root/${repo_root:t}"
   local dir="$repo_root/wt/$type/$name"
   local branch="$type/$name"
 
