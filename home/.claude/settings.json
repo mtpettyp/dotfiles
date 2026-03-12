@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/allow-sleep.sh"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/prevent-sleep.sh"
+          }
+        ]
+      }
+    ]
+  },  
+  "enabledPlugins": {
+    "ralph-skills@ralph-marketplace": true
+  }
+}
