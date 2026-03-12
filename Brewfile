@@ -72,6 +72,7 @@ brew "zlib"
 
 cask "1password"
 cask "aws-vault"
+cask "claudebar"
 cask "day-o"
 cask "discord"
 cask "docker"
