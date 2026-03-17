@@ -25,5 +25,6 @@
     "ralph-skills@ralph-marketplace": true,
     "swift-lsp@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true
-  }
+  },
+  "voiceEnabled": true
 }
