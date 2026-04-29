@@ -54,6 +54,7 @@ brew "sdkman-cli"
 brew "shellcheck"
 brew "spring-boot"
 brew "ssh-copy-id", link: true
+brew "swiftbar"
 brew "tcpdump"
 brew "telnet"
 brew "tfenv"
